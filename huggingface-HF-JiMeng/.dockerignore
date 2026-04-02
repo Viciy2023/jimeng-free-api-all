@@ -1,0 +1,14 @@
+.git
+.gitignore
+node_modules
+npm-debug.log
+yarn-error.log
+dist
+tmp
+logs
+doc
+scripts
+src
+configs
+LICENSE
+.env

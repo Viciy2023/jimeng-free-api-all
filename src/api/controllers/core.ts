@@ -572,6 +572,19 @@ export function checkResult(result: AxiosResponse) {
  * @param authorization 认证字符串
  */
 export function tokenSplit(authorization: string) {
+  // 如果服务端配置了 SESSION_IDS，则校验客户端 API Key
+  const serverSessionIds = process.env.SESSION_IDS;
+  const serverApiKey = process.env.API_KEY;
+  if (serverSessionIds && serverSessionIds.trim()) {
+    if (!serverApiKey || !serverApiKey.trim()) {
+      throw new Error("服务端已配置 SESSION_IDS 但未配置 API_KEY，请在 HF Space Variables 中设置 API_KEY");
+    }
+    const clientKey = authorization.replace("Bearer ", "").trim();
+    if (clientKey !== serverApiKey.trim()) {
+      throw new Error("API Key 无效，请检查客户端 API Key 设置");
+    }
+    return serverSessionIds.split(",").map(s => s.trim()).filter(Boolean);
+  }
   return authorization.replace("Bearer ", "").split(",");
 }
 

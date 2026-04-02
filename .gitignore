@@ -38,3 +38,7 @@ hk-tokens.json
 .omc/
 # Claude local settings
 .claude/
+Toonflow-app
+构建日志.MD
+运行日志.,MD
+.env
