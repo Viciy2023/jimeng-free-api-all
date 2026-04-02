@@ -4,7 +4,7 @@ WORKDIR /app
 
 # 从 GitHub 拉取最新源码
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
-ARG GITHUB_REPO=wwwzhouhui/jimeng-free-api-all
+ARG GITHUB_REPO=Viciy2023/jimeng-free-api-all
 ARG GITHUB_BRANCH=main
 RUN git clone --depth 1 --branch ${GITHUB_BRANCH} https://github.com/${GITHUB_REPO}.git /tmp/src \
     && cp -r /tmp/src/. /app/ \
