@@ -51,7 +51,7 @@ license: mit
 
 ### 国际版 sessionid
 
-在 sessionid 前加区域前缀，如 `sg-xxx`、`hk-xxx`、`jp-xxx` 等。
+在 sessionid 前加区域前缀，如 `sg-xxx`、`hk-xxx`、`jp-xxx`、`kr-xxx`、`ae-xxx` 等。
 
 ## 验证接口
 
